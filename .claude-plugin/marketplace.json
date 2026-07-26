@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "marketplace": {
+    "name": "Claude Skill Syncro",
+    "description": "Repository personnel de synchronisation des skills Claude Code entre PC",
+    "author": "batoucode",
+    "url": "https://github.com/batoucode/Claude-skill-syncro"
+  },
+  "plugins": [
+    {
+      "id": "ui-ux-pro-max",
+      "name": "UI/UX Pro Max",
+      "version": "1.0.0",
+      "description": "Searchable database of UI/UX design rules with 84 styles, 192 color palettes, 74 font pairings across 22 stacks",
+      "author": "nextlevelbuilder",
+      "tags": ["design", "ui", "ux", "frontend"],
+      "requirements": {
+        "claude-code": ">=1.0.0",
+        "python": ">=3.0"
+      }
+    }
+  ]
+}

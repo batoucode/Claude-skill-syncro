@@ -1,0 +1,58 @@
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+~/.claude-credentials/
+credentials/
+secrets/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Claude Code local stuff
+~/.claude/
+.claude/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Node modules (if skills use npm)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Credentials and private data
+token
+tokens
+api_key*
+secret*
+auth*
+
+# Large files (if any)
+*.mp4
+*.mov
+*.zip
+*.rar
+*.7z
+
+# Project-specific ignores
+design-system/
+.claude-plugin/local/
