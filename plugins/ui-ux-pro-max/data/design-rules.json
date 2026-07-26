@@ -1,0 +1,443 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-07-26",
+  "description": "Comprehensive UI/UX design rules and recommendations",
+  "rules": {
+    "accessibility": {
+      "priority": 1,
+      "impact": "CRITICAL",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "a11y-contrast",
+          "title": "Color Contrast Ratio",
+          "rule": "Minimum 4.5:1 for normal text, 3:1 for large text",
+          "wcag": "WCAG 2.1 AA",
+          "how": "Use contrast checker tool, aim for 7:1 for AAA compliance"
+        },
+        {
+          "id": "a11y-alt-text",
+          "title": "Alternative Text for Images",
+          "rule": "All images must have descriptive alt text",
+          "wcag": "WCAG 2.1 A",
+          "how": "Write concise alt text describing the image content and purpose"
+        },
+        {
+          "id": "a11y-keyboard",
+          "title": "Keyboard Navigation",
+          "rule": "All functionality must work with keyboard (Tab, Enter, Escape)",
+          "wcag": "WCAG 2.1 A",
+          "how": "Test with keyboard only, ensure focus indicators visible"
+        },
+        {
+          "id": "a11y-aria",
+          "title": "ARIA Labels",
+          "rule": "Form inputs, buttons, landmarks need proper ARIA attributes",
+          "wcag": "WCAG 2.1 AA",
+          "how": "Use aria-label, aria-describedby, aria-live where appropriate"
+        },
+        {
+          "id": "a11y-focus",
+          "title": "Focus Indicators",
+          "rule": "Focused elements must have visible 2px+ outline or equivalent",
+          "wcag": "WCAG 2.1 AA",
+          "how": "Never remove default focus outlines, ensure 3:1 color contrast"
+        },
+        {
+          "id": "a11y-color-only",
+          "title": "Color Independence",
+          "rule": "Color must not be the only means of conveying information",
+          "wcag": "WCAG 2.1 A",
+          "how": "Combine color with text, patterns, or icons for meaning"
+        }
+      ]
+    },
+    "interaction": {
+      "priority": 2,
+      "impact": "CRITICAL",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "touch-size",
+          "title": "Touch Target Size",
+          "rule": "Minimum 44×44 pixels for all interactive elements",
+          "why": "Apple HIG, Material Design, accessibility standard",
+          "how": "Increase padding, use semantic buttons, test on real devices"
+        },
+        {
+          "id": "touch-spacing",
+          "title": "Touch Target Spacing",
+          "rule": "At least 8px gap between adjacent touch targets",
+          "why": "Prevent accidental taps, improve accuracy",
+          "how": "Use margin or gap in flexbox/grid"
+        },
+        {
+          "id": "interaction-feedback",
+          "title": "Loading Feedback",
+          "rule": "Show spinner, skeleton, or progress for async operations",
+          "why": "User knows something is happening, prevents duplicate taps",
+          "how": "Add loading state, disable button during submission"
+        },
+        {
+          "id": "interaction-hover",
+          "title": "Hover States",
+          "rule": "Hover must be distinct from normal state (not just opacity)",
+          "why": "Clear feedback that element is interactive",
+          "how": "Add background color change, scale, or shadow"
+        }
+      ]
+    },
+    "performance": {
+      "priority": 3,
+      "impact": "HIGH",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "perf-images",
+          "title": "Image Format",
+          "rule": "Use WebP/AVIF with PNG fallback, optimize file size",
+          "metric": "LCP (Largest Contentful Paint) < 2.5s",
+          "how": "Use ImageOptim, Squoosh, or CDN image service"
+        },
+        {
+          "id": "perf-lazy-load",
+          "title": "Lazy Loading",
+          "rule": "Load images below fold on scroll or demand",
+          "metric": "Reduce initial bundle by 30-50%",
+          "how": "Use loading='lazy' attribute or Intersection Observer"
+        },
+        {
+          "id": "perf-cls",
+          "title": "Cumulative Layout Shift",
+          "rule": "CLS < 0.1, reserve space for dynamic content",
+          "metric": "CLS (Cumulative Layout Shift) < 0.1",
+          "how": "Use skeletons, aspect-ratio, height: auto with min-height"
+        },
+        {
+          "id": "perf-code-split",
+          "title": "Code Splitting",
+          "rule": "Load only JavaScript needed per route/feature",
+          "metric": "JavaScript bundle < 100KB (gzipped)",
+          "how": "Use dynamic imports, tree-shaking, minimize dependencies"
+        }
+      ]
+    },
+    "layout": {
+      "priority": 4,
+      "impact": "HIGH",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "layout-breakpoints",
+          "title": "Responsive Breakpoints",
+          "rule": "Mobile-first: 320px, 768px, 1024px, 1440px",
+          "why": "Covers all device sizes from old phones to 4K monitors",
+          "breakpoints": {
+            "mobile": "320px - 767px",
+            "tablet": "768px - 1023px",
+            "desktop": "1024px - 1439px",
+            "large": "1440px+"
+          }
+        },
+        {
+          "id": "layout-no-scroll",
+          "title": "No Horizontal Scroll",
+          "rule": "Content must fit viewport width on all breakpoints",
+          "why": "Horizontal scroll is terrible UX, breaks mobile experience",
+          "fix": "Use overflow-x: hidden, max-width: 100vw, flexbox layout"
+        },
+        {
+          "id": "layout-viewport",
+          "title": "Viewport Meta Tag",
+          "rule": "Must include: <meta name='viewport' content='width=device-width, initial-scale=1'>",
+          "why": "Enables responsive design on mobile browsers",
+          "impact": "Without this, mobile sees desktop version (zoomed out)"
+        }
+      ]
+    },
+    "typography": {
+      "priority": 5,
+      "impact": "MEDIUM",
+      "domain": "typography",
+      "rules": [
+        {
+          "id": "typo-base-size",
+          "title": "Base Font Size",
+          "rule": "16px for body text (standard across all platforms)",
+          "why": "Optimal readability, matches OS defaults",
+          "scaling": "Mobile 16px → Desktop 18px for better readability"
+        },
+        {
+          "id": "typo-line-height",
+          "title": "Line Height",
+          "rule": "1.4-1.6 for body text (not 1.2 or 2.0)",
+          "why": "Optimal readability, screen-friendly spacing",
+          "mapping": {
+            "display": 1.2,
+            "heading": 1.3,
+            "body": 1.6,
+            "caption": 1.4
+          }
+        },
+        {
+          "id": "typo-line-length",
+          "title": "Line Length",
+          "rule": "60-80 characters per line for comfortable reading",
+          "why": "Eyes don't have to travel far, reduces cognitive load",
+          "how": "Use max-width: 65ch on text containers"
+        }
+      ]
+    },
+    "color": {
+      "priority": 6,
+      "impact": "MEDIUM",
+      "domain": "color",
+      "rules": [
+        {
+          "id": "color-semantics",
+          "title": "Semantic Color Tokens",
+          "rule": "Use named tokens (primary, secondary, error) not hex values",
+          "tokens": {
+            "primary": "#007AFF",
+            "secondary": "#5AC8FA",
+            "success": "#34C759",
+            "error": "#FF3B30",
+            "warning": "#FF9500"
+          },
+          "why": "Easier theming, maintainability, dark mode support"
+        },
+        {
+          "id": "color-pairing",
+          "title": "Color Palette",
+          "rule": "Use 1 primary + 1-2 secondary colors + neutrals",
+          "why": "Prevents visual chaos, strengthens brand identity",
+          "size": "192 color palettes available in database"
+        }
+      ]
+    },
+    "animation": {
+      "priority": 7,
+      "impact": "MEDIUM",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "anim-duration",
+          "title": "Animation Duration",
+          "rule": "150-300ms for UI feedback (not 1000ms+)",
+          "why": "Feels responsive, not sluggish",
+          "timing": {
+            "micro": "50-100ms",
+            "quick": "150-200ms",
+            "standard": "200-300ms",
+            "slow": "300-500ms (rarely used)"
+          }
+        },
+        {
+          "id": "anim-easing",
+          "title": "Easing Functions",
+          "rule": "Use ease-out for entrance, ease-in for exit",
+          "why": "Feels natural, matches real-world physics",
+          "functions": {
+            "entrance": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+            "exit": "ease-in",
+            "emphasis": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+          }
+        }
+      ]
+    },
+    "forms": {
+      "priority": 8,
+      "impact": "MEDIUM",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "form-labels",
+          "title": "Visible Labels",
+          "rule": "Labels must be visible (not placeholder text)",
+          "why": "Placeholder disappears on focus, confuses users",
+          "structure": "<label><input></label> or aria-labelledby"
+        },
+        {
+          "id": "form-errors",
+          "title": "Error Messages",
+          "rule": "Show error near the field with clear message",
+          "why": "User can quickly locate and fix the problem",
+          "pattern": "Red outline + text below input + aria-invalid='true'"
+        },
+        {
+          "id": "form-validation",
+          "title": "Validation Timing",
+          "rule": "Validate on blur, not on every keystroke",
+          "why": "Reduces false positives, better UX",
+          "exception": "Real-time validation for availability checks (email)"
+        }
+      ]
+    },
+    "navigation": {
+      "priority": 9,
+      "impact": "HIGH",
+      "domain": "ux",
+      "rules": [
+        {
+          "id": "nav-back",
+          "title": "Back Button Behavior",
+          "rule": "Back button goes to previous screen (not menu toggle)",
+          "why": "Users expect predictable browser behavior",
+          "web": "Browser back = previous page",
+          "mobile": "System back = previous screen"
+        },
+        {
+          "id": "nav-bottom-tabs",
+          "title": "Bottom Navigation",
+          "rule": "Max 5 items on mobile (6+ items use drawer/tabs)",
+          "why": "Thumb-friendly, common mobile pattern",
+          "examples": "Instagram (5), TikTok (4), Twitter (5) bottom tabs"
+        },
+        {
+          "id": "nav-deep-links",
+          "title": "Deep Linking",
+          "rule": "Every screen must have shareable URL",
+          "why": "Users can bookmark, share, come back to exact location",
+          "how": "Each route gets unique URL path"
+        }
+      ]
+    },
+    "charts": {
+      "priority": 10,
+      "impact": "LOW",
+      "domain": "chart",
+      "rules": [
+        {
+          "id": "chart-legend",
+          "title": "Chart Legends",
+          "rule": "Always include legend or clear labeling",
+          "why": "Users need to understand what colors/patterns mean",
+          "placement": "Right side for desktop, below for mobile"
+        },
+        {
+          "id": "chart-tooltips",
+          "title": "Tooltips",
+          "rule": "Show exact values on hover/tap",
+          "why": "Users want precise data, not just visual trend",
+          "format": "Label: Value (unit)" or "$12,345.67"
+        },
+        {
+          "id": "chart-colors",
+          "title": "Accessible Chart Colors",
+          "rule": "Use colorblind-friendly palettes (not red-green alone)",
+          "why": "8% of males, 0.5% of females have color blindness",
+          "tools": "ColorOracle, Coblis, WebAIM palette checker"
+        }
+      ]
+    }
+  },
+  "styles": [
+    {
+      "id": "minimal",
+      "name": "Minimal",
+      "description": "Clean, simple, whitespace-heavy design",
+      "examples": ["Figma", "Stripe", "Apple"],
+      "colors": ["#FFFFFF", "#000000", "#F5F5F5"],
+      "typography": "Sans-serif, clean hierarchy",
+      "spacing": "Generous (16px+ gaps)",
+      "use_case": "SaaS, minimalist brands, high-end products"
+    },
+    {
+      "id": "vibrant",
+      "name": "Vibrant",
+      "description": "Bold colors, high contrast, energetic",
+      "examples": ["Duolingo", "Slack", "Mailchimp"],
+      "colors": ["#FF6B6B", "#4ECDC4", "#FFE66D"],
+      "typography": "Bold, playful, varied weights",
+      "spacing": "Compact to medium",
+      "use_case": "EdTech, social, entertainment, startups"
+    },
+    {
+      "id": "dark",
+      "name": "Dark",
+      "description": "Dark backgrounds, light text, night mode",
+      "examples": ["VS Code", "GitHub Dark", "Discord"],
+      "colors": ["#1A1A1A", "#FFFFFF", "#404040"],
+      "typography": "Crisp, high contrast",
+      "spacing": "Medium",
+      "use_case": "Developer tools, gaming, media players"
+    },
+    {
+      "id": "playful",
+      "name": "Playful",
+      "description": "Rounded corners, emoji, friendly tone",
+      "examples": ["Basecamp", "Notion", "Figma"],
+      "colors": ["#FFB700", "#FF6B9D", "#00D9FF"],
+      "typography": "Rounded sans-serif, emojis",
+      "spacing": "Generous with rounded elements",
+      "use_case": "Productivity, community, casual apps"
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "description": "Corporate, trust-focused, serious tone",
+      "examples": ["LinkedIn", "Microsoft", "IBM"],
+      "colors": ["#0078D4", "#00A4EF", "#FFFFFF"],
+      "typography": "Serif headers, sans-serif body",
+      "spacing": "Structured, consistent",
+      "use_case": "Enterprise, finance, B2B, government"
+    },
+    {
+      "id": "content-first",
+      "name": "Content-First",
+      "description": "Typography-heavy, reading-focused",
+      "examples": ["Medium", "Wikipedia", "Stripe Blog"],
+      "colors": ["#000000", "#FFFFFF", "#CCCCCC"],
+      "typography": "Large serif or modern sans-serif, generous line height",
+      "spacing": "Wide margins (40px+)",
+      "use_case": "Publishing, documentation, blogs, news"
+    },
+    {
+      "id": "immersive",
+      "name": "Immersive",
+      "description": "Full-screen, hero sections, video-first",
+      "examples": ["Apple", "Netflix", "Airbnb"],
+      "colors": ["Varies (depends on content)"],
+      "typography": "Large, bold headlines over images",
+      "spacing": "Large hero sections, full-width elements",
+      "use_case": "Entertainment, travel, luxury brands, portfolios"
+    },
+    {
+      "id": "accessible",
+      "name": "Accessible",
+      "description": "High contrast, large text, clear structure",
+      "examples": ["Gov.uk", "BBC", "NHS"],
+      "colors": ["#000000", "#FFFFFF", ##0076EB"],
+      "typography": "Large (18px+), sans-serif, clear hierarchy",
+      "spacing": "Generous, clear sections",
+      "use_case": "Government, healthcare, legal, education"
+    }
+  ],
+  "stacks": [
+    "react", "nextjs", "vue", "nuxtjs", "svelte", "astro",
+    "angular", "laravel", "django", "rails",
+    "swiftui", "react-native", "flutter", "jetpack-compose",
+    "html-tailwind", "html-bootstrap", "shadcn", "daisyui"
+  ],
+  "fonts": [
+    {
+      "name": "System Stack",
+      "font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto",
+      "performance": "Excellent (no download)",
+      "use": "Default for most apps"
+    },
+    {
+      "name": "Serif Pairing",
+      "header": "Georgia or Garamond",
+      "body": "Roboto or Open Sans",
+      "performance": "Good (2 fonts)",
+      "use": "Professional, luxury brands"
+    },
+    {
+      "name": "Monospace",
+      "font": "'Monaco', 'Courier New', monospace",
+      "performance": "Excellent",
+      "use": "Code, technical documentation"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1",
+  "name": "Claude Skill Syncro",
+  "version": "1.0.0",
+  "description": "Personal synchronization of Claude Code skills across multiple PCs via GitHub",
+  "author": "batoucode",
+  "license": "MIT",
+  "repository": "https://github.com/batoucode/Claude-skill-syncro",
+  "skills": [
+    {
+      "name": "ui-ux-pro-max",
+      "path": "plugins/ui-ux-pro-max"
+    }
+  ]
+}
