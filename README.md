@@ -31,6 +31,33 @@ Claude-skill-syncro/
 
 Quand tu mets à jour une skill et que tu pusses sur GitHub, les autres PC peuvent récupérer les changements en une commande.
 
+## 📚 Skills Disponibles
+
+### ✅ ui-ux-pro-max
+**Description**: Aide pour la conception UI/UX avec recommandations de design.
+
+**Utilise-la quand**:
+- Tu crées une nouvelle interface
+- Tu dois choisir des couleurs ou typographies
+- Tu veux vérifier l'accessibilité
+- Tu as besoin de conseils sur l'interaction utilisateur
+
+**Comment l'activer dans une demande**:
+```
+Je dois créer un dashboard. Utilise la skill ui-ux-pro-max pour me recommander un design system.
+```
+
+**Ou commandes disponibles**:
+```bash
+# Design system complet
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "ta recherche" --design-system
+
+# Chercher une règle spécifique
+python "${CLAUDE_PLUGIN_ROOT}/.claude/skills/ui-ux-pro-max/scripts/search.py" "contraste accessibilité" --domain ux
+```
+
+---
+
 ## 🚀 Installation sur un nouveau PC
 
 ### Première utilisation
