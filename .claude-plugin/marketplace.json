@@ -13,8 +13,10 @@
       },
       "category": "design",
       "source": {
-        "source": "local",
-        "path": "plugins/ui-ux-pro-max"
+        "source": "git-subdir",
+        "url": "https://github.com/batoucode/Claude-skill-syncro.git",
+        "path": "plugins/ui-ux-pro-max",
+        "ref": "main"
       }
     }
   ]
