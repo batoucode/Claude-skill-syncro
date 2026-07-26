@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0",
-  "marketplace": {
-    "name": "Claude Skill Syncro",
-    "description": "Repository personnel de synchronisation des skills Claude Code entre PC",
-    "author": "batoucode",
-    "url": "https://github.com/batoucode/Claude-skill-syncro"
+  "name": "Claude Skill Syncro",
+  "owner": {
+    "name": "batoucode"
   },
+  "description": "Repository personnel de synchronisation des skills Claude Code entre PC",
+  "version": "1.0.0",
+  "url": "https://github.com/batoucode/Claude-skill-syncro",
   "plugins": [
     {
       "id": "ui-ux-pro-max",
