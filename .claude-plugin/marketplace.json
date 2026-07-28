@@ -18,6 +18,20 @@
         "path": "plugins/ui-ux-pro-max",
         "ref": "main"
       }
+    },
+    {
+      "name": "legal-pages",
+      "description": "Génère automatiquement les pages légales (mentions légales, politique de confidentialité, CGV) conformes pour les sites web clients DesCodes",
+      "author": {
+        "name": "batoucode"
+      },
+      "category": "legal",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/batoucode/Claude-skill-syncro.git",
+        "path": "plugins/legal-pages",
+        "ref": "main"
+      }
     }
   ]
 }
